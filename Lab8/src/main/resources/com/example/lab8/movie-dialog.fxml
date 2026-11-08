@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.lab8.MovieDialogController" prefWidth="350.0">
+    <children>
+        <Label text="Добавить фильм в каталог:" style="-fx-font-weight: bold;" />
+        <GridPane vgap="8.0" hgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="80.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" />
+                <RowConstraints minHeight="30.0" />
+                <RowConstraints minHeight="30.0" />
+            </rowConstraints>
+            <children>
+                <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtTitle" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Жанр:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtGenre" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Год выпуска:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtYear" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+
+        <Separator />
+
+        <Label text="Настройка интерфейса (Цвет текста):" style="-fx-font-weight: bold;" />
+        <ColorPicker fx:id="colorPicker" maxWidth="Infinity" />
+
+        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+            <children>
+                <Button text="Применить" onAction="#onApply" prefWidth="90.0" />
+                <Button text="Отмена" onAction="#onCancel" prefWidth="90.0" />
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+</VBox>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com" xmlns:fx="http://javafx.com"
+            fx:controller="com.example.lab9.HelloController" stylesheets="@style.css">
+
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <children>
+                <GridPane hgap="10.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                    </columnConstraints>
+
+                    <children>
+                        <!-- ФИО -->
+                        <Label text="ФИО:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <VBox spacing="2" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                            <TextField fx:id="txtName" promptText="Иванов Иван Иванович" />
+                            <Label fx:id="lblNameError" styleClass="error-label" />
+                        </VBox>
+
+                        <!-- Email -->
+                        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <VBox spacing="2" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                            <TextField fx:id="txtEmail" promptText="example@mail.com" />
+                            <Label fx:id="lblEmailError" styleClass="error-label" />
+                        </VBox>
+
+                        <!-- Возраст -->
+                        <Label text="Возраст:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <VBox spacing="2" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                            <TextField fx:id="txtAge" promptText="16-100" />
+                            <Label fx:id="lblAgeError" styleClass="error-label" />
+                        </VBox>
+
+                        <!-- ID Читателя (Вариант 4) -->
+                        <Label text="ID Читательского билета:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <VBox spacing="2" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                            <TextField fx:id="txtCardId" promptText="LIB-1234" />
+                            <Label fx:id="lblCardIdError" styleClass="error-label" />
+                        </VBox>
+
+                        <!-- Категория -->
+                        <Label text="Категория:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                        <VBox spacing="2" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                            <ComboBox fx:id="cmbCategory" promptText="Выберите..." prefWidth="200.0" />
+                            <Label fx:id="lblCategoryError" styleClass="error-label" />
+                        </VBox>
+
+                        <!-- Согласие -->
+                        <VBox spacing="2" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                            <CheckBox fx:id="chkConsent" text="Согласен с правилами библиотеки" />
+                            <Label fx:id="lblConsentError" styleClass="error-label" />
+                        </VBox>
+                    </children>
+                </GridPane>
+
+                <!-- Кнопки -->
+                <HBox spacing="10.0">
+                    <children>
+                        <Button text="Зарегистрировать" onAction="#onRegister" prefWidth="150.0" />
+                        <Button text="Очистить" onAction="#clearForm" prefWidth="100.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <TableView fx:id="tableView" prefHeight="250.0">
+            <columns>
+                <TableColumn fx:id="colName" text="ФИО" prefWidth="200.0" />
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="150.0" />
+                <TableColumn fx:id="colAge" text="Возраст" prefWidth="80.0" />
+                <TableColumn fx:id="colCardId" text="ID Билета" prefWidth="120.0" />
+                <TableColumn fx:id="colCategory" text="Категория" prefWidth="150.0" />
+            </columns>
+        </TableView>
+    </bottom>
+</BorderPane>

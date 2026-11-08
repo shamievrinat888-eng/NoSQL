@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="520.0" prefWidth="780.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.lab8.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="Файл">
+                    <items>
+                        <MenuItem text="Открыть файл" onAction="#onOpen"/>
+                        <MenuItem text="Сохранить как..." onAction="#onSaveAs"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="Выход" onAction="#onExit"/>
+                    </items>
+                </Menu>
+                <Menu text="Помощь">
+                    <items>
+                        <MenuItem text="О программе" onAction="#onAbout"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <TableView fx:id="tblMovies" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colTitle" text="Название фильма" prefWidth="300.0" />
+                <TableColumn fx:id="colGenre" text="Жанр" prefWidth="150.0" />
+                <TableColumn fx:id="colYear" text="Год выпуска" prefWidth="100.0" />
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10.0" alignment="TOP_CENTER" prefWidth="180.0" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <children>
+                <Label text="Управление" style="-fx-font-weight: bold;"/>
+                <Button text="➕ Добавить" onAction="#onAddMovie" maxWidth="Infinity"/>
+                <Button text="✏️ Редактировать" onAction="#onEditMovie" maxWidth="Infinity"/>
+                <Button text="❌ Удалить" onAction="#onDeleteMovie" maxWidth="Infinity" style="-fx-text-fill: red;"/>
+                <Separator />
+                <Button text="🎨 Цвет текста" onAction="#onChooseColor" maxWidth="Infinity"/>
+            </children>
+        </VBox>
+    </right>
+    <bottom>
+        <Label fx:id="lblStatus" text="Программа готова к работе" BorderPane.alignment="CENTER_LEFT" style="-fx-padding: 5;"/>
+    </bottom>
+</BorderPane>
